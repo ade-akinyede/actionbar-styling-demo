@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    > android:theme defines styling of the toolbar for properties such as text and menu-text color.
+    > android:titleTextAppearance defines styling for text for size and style properties.
+    > android:popupTheme defines styling for the popup when overflow menu is clicked.
+ -->
 <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

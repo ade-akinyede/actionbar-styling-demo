@@ -19,14 +19,17 @@ import com.androidplaybook.showcasedemo.R;
  *
  * Example usage & flow:
  *
- * 1. Activity called "MainActivity" extends BaseActivity.
- * 2. MainActivity will have to implement abstract method @see #getLayoutResource()
- * 2. In MainActivity onCreate(Bundle savedInstanceState), simply call super.onCreate(savedInstanceState).
+ * 1. Activity called "MainActivity" extends BaseActivity:
+ * ==> MainActivity will have to implement abstract method @see #getLayoutResource() - assuming
+ *     MainActivity is non-abstract.
  *
+ * 2. In MainActivity onCreate(Bundle savedInstanceState), simply call super.onCreate(savedInstanceState):
+ * ==> BaseActivity calls setContentView(getLayoutResource()), which handles layout inflation, and
+ *     resolves the toolbar instance (and actionBar).
  *
- * with id "toolbar" i.e. android:id="+@id/toolbar".
+ * 3. MainActivity can call relevant toolbar methods such as adding an icon, changing text, home/back icon etc
  *
- * This class will
+ * NOTE: Toolbar in layout file must have android:id="+@id/toolbar".
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -46,11 +49,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Subclasses MUST have returned a valid layout file for this to work
+        // Handle layout inflation for subclasses
         setContentView(getLayoutResource());
 
-        // Find the toolbar view inside the activity layout;
-        // Make sure the toolbar exists in the activity and is not null
+        // Find the toolbar view inside the activity layout
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             // Sets the Toolbar to act as the ActionBar for this Activity window.
@@ -106,6 +108,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Show logo and resolve left inset spacing.
+     *
+     * @param drawable Drawable resource to set as the app icon
+     */
     protected void setToolbarAppIcon(@DrawableRes int drawable){
         // Display icon in the toolbar
         if(actionBar != null) {
@@ -116,20 +123,21 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Delegate for setting the background color for the toolbar.
+     *
+     * @param color Color resource
+     */
     protected void setToolbarBackgroundColor(@ColorRes int color){
         toolbar.setBackgroundColor(getResources().getColor(color));
     }
 
+    /**
+     * Delegate for setting the overflow icon
+     *
+     * @param overflowIcon Drawable resource to use as the overflow icon
+     */
     protected void setOverflowIcon(@DrawableRes int overflowIcon){
         toolbar.setOverflowIcon(getResources().getDrawable(overflowIcon));
-    }
-
-    /**
-     * Opens the settings activity
-     */
-    protected void openSettings() {
-
-//        Intent intent = new Intent(this, SMMainSettingsActivity.class);
-//        startActivityForResult(intent, SMConstants.SETTINGS_ACTIVITY_REQUEST_CODE);
     }
 }

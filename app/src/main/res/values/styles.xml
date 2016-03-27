@@ -28,29 +28,6 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="CustomToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- android:textColorPrimary is the  color of the title text in the Toolbar,
-        as seen in the Theme.AppCompat theme:  -->
-        <item name="android:textColorPrimary">@android:color/holo_blue_dark</item>
-
-        <!-- android:textColorPrimaryInverse is the  color of the title text in the Toolbar,
-        as seen in the Theme.AppCompat.Light theme:  -->
-        <item name="android:textColorPrimaryInverse">@android:color/holo_orange_dark</item>
-
-        <!-- android:actionMenuTextColor is the color of the text of action (menu) items in the Toolbar,
-        at least in the Theme.AppCompat theme. For some reason, they already get the textColorPrimary
-        when running on API 21, but not on older versions of Android, so this is only necessary to
-        support older Android versions.-->
-        <!--<item name="actionMenuTextColor">@android:color/holo_blue_dark</item>-->
-
-        <!-- android:textColorSecondary is the color of the menu overflow icon -->
-        <item name="android:textColorSecondary">@android:color/holo_orange_dark</item>
-        <!-- This would set the toolbar's background color,
-              but setting this also changes the popup menu's background,
-              even if we define popupTheme for our <Toolbar> -->
-        <!-- <item name="android:background">@color/color_primary</item> -->
-    </style>
-
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <!-- This would set the toolbar's background color but setting this also changes the popup menu's background,
         even if we define popupTheme for our <Toolbar>-->
@@ -78,8 +55,11 @@
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:textColorSecondary">@android:color/holo_green_light</item>
-        <item name="android:windowBackground">@android:color/holo_blue_bright</item>
+        <!-- Sets the text color for the popup menu text -->
+        <item name="android:textColorPrimary">@android:color/white</item>
+
+        <!-- Sets the background color for the popup menu -->
+        <item name="android:background">@android:color/holo_orange_dark</item>
     </style>
 
 </resources>
