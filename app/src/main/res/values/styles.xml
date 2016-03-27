@@ -1,0 +1,85 @@
+<resources>
+
+    <!-- Base application theme.
+         Defining this lets values-v21/styles.xml reuse it with changes. -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- colorPrimary represents your brand color and should be the most widely used across all
+        screens and components. The default ActionBar uses this background, but not the toolbar;
+        we specify the same color for the toolbar background in toolbar.xml. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+
+        <!-- colorPrimaryDark can be used to indicate a related action or information.
+        The status bar (where you see the battery, clock, etc) adopts this color. -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <!--The accent should be used for the floating action button and interactive elements, such as:
+        - Text fields and cursors.
+        - Text selection.
+        - Progress bars.
+        - Selection controls, buttons, and sliders
+        - Links
+        -->
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.Base">
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="CustomToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- android:textColorPrimary is the  color of the title text in the Toolbar,
+        as seen in the Theme.AppCompat theme:  -->
+        <item name="android:textColorPrimary">@android:color/holo_blue_dark</item>
+
+        <!-- android:textColorPrimaryInverse is the  color of the title text in the Toolbar,
+        as seen in the Theme.AppCompat.Light theme:  -->
+        <item name="android:textColorPrimaryInverse">@android:color/holo_orange_dark</item>
+
+        <!-- android:actionMenuTextColor is the color of the text of action (menu) items in the Toolbar,
+        at least in the Theme.AppCompat theme. For some reason, they already get the textColorPrimary
+        when running on API 21, but not on older versions of Android, so this is only necessary to
+        support older Android versions.-->
+        <!--<item name="actionMenuTextColor">@android:color/holo_blue_dark</item>-->
+
+        <!-- android:textColorSecondary is the color of the menu overflow icon -->
+        <item name="android:textColorSecondary">@android:color/holo_orange_dark</item>
+        <!-- This would set the toolbar's background color,
+              but setting this also changes the popup menu's background,
+              even if we define popupTheme for our <Toolbar> -->
+        <!-- <item name="android:background">@color/color_primary</item> -->
+    </style>
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- This would set the toolbar's background color but setting this also changes the popup menu's background,
+        even if we define popupTheme for our <Toolbar>-->
+        <!--<item name="android:background">@color/colorPrimary</item>-->
+
+        <!-- android:textColorPrimary is the color of the title text in the Toolbar AND overflow icon  -->
+        <item name="android:textColorPrimary">@android:color/holo_orange_dark</item>
+
+        <!-- android:actionMenuTextColor is the color for action (menu) items text that appear in
+        the Toolbar e.g. in menu, items with app:showAsAction="always" will have this color.
+        This does NOT set the color for text in the popup menu (shown when you click the overflow icon) -->
+        <item name="actionMenuTextColor">@android:color/holo_green_light</item>
+
+        <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
+        <!--
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+        -->
+    </style>
+
+    <!-- This configures the styles for the title within the Toolbar  -->
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColorSecondary">@android:color/holo_green_light</item>
+        <item name="android:windowBackground">@android:color/holo_blue_bright</item>
+    </style>
+
+</resources>
